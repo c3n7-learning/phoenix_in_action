@@ -4,7 +4,7 @@ defmodule Auction.FakeRepo do
   @items [
     %Item{
       id: 1,
-      title: "My first item:",
+      title: "My first item",
       description: "A tasty item sure to please",
       ends_at: ~N[2020-02-03 00:00:00]
     },
