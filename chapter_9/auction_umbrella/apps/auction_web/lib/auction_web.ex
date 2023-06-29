@@ -83,6 +83,7 @@ defmodule AuctionWeb do
     quote do
       # HTML escaping functionality
       import Phoenix.HTML
+      import Phoenix.HTML.Link
       # Core UI components and translation
       import AuctionWeb.CoreComponents
       import AuctionWeb.Gettext
