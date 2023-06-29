@@ -22,4 +22,18 @@ defmodule AuctionWeb.ItemController do
       {:error, item} -> render(conn, :new, item: item)
     end
   end
+
+  def edit(conn, %{"id" => id}) do
+    item = Auction.edit_item(id)
+    render(conn, :edit, item: item)
+  end
+
+  def update(conn, %{"id" => id, "item" => item_params}) do
+    item = Auction.get_item(id)
+
+    case Auction.update_item(item, item_params) do
+      {:ok, item} -> redirect(conn, to: ~p"/items/#{item.id}")
+      {:error, item} -> render(conn, :edit, item: item)
+    end
+  end
 end

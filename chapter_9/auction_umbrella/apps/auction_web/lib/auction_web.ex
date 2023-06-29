@@ -86,6 +86,7 @@ defmodule AuctionWeb do
       import Phoenix.HTML.Link
       # Core UI components and translation
       import AuctionWeb.CoreComponents
+      import AuctionWeb.CustomComponents
       import AuctionWeb.Gettext
 
       # Shortcut for generating JS commands
