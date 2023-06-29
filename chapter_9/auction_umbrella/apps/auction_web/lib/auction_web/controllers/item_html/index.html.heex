@@ -3,7 +3,7 @@
 <ul>
 <%= for item <- @items do %>
 <li>
-<strong class="text-blue-500"><%= link(item.title, to: "/items/#{item.id}") %></strong>::<%= item.id %>:: <%= item.description %>
+<strong class="text-blue-500"><.link href={~p"/items/#{item.id}"}><%=  item.title%></.link></strong>::<%= item.id %>:: <%= item.description %>
 </li>
 <% end %>
 </ul>
