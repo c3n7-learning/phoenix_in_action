@@ -2,7 +2,7 @@ defmodule Auction.User do
   import Ecto.Changeset
   use Ecto.Schema
 
-  schema "user" do
+  schema "users" do
     field(:username, :string)
     field(:email_address, :string)
     field(:password, :string, virtual: true)
