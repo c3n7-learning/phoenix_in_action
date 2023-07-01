@@ -8,6 +8,7 @@ defmodule AuctionWeb.Router do
     plug(:put_root_layout, html: {AuctionWeb.Layouts, :root})
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
+    plug(AuctionWeb.Authenticator)
   end
 
   pipeline :api do
@@ -34,7 +35,7 @@ defmodule AuctionWeb.Router do
 
     get("/login", SessionController, :new)
     post("/login", SessionController, :create)
-    get("/logout", SessionController, :delete)
+    delete("/logout", SessionController, :delete)
   end
 
   # Other scopes may use custom stacks.
