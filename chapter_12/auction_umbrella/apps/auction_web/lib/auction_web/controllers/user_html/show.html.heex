@@ -1,0 +1,26 @@
+<h1>User Details</h1>
+
+<dl>
+  <dt>Username</dt>
+  <dd><%= @user.username %></dd>
+  <br />
+  <dt>Email address</dt>
+  <dd><%= @user.email_address %></dd>
+</dl>
+
+<div class="mt-2">
+  <h2 class="text-2xl">Recent Bids</h2>
+  <%= for bid <- @bids do %>
+    <p>
+      <strong><%= formatted_datetime(bid.inserted_at) %></strong>
+      -- 
+      <%= integer_to_currency(bid.amount) %> 
+      for
+      <em> 
+      <.link href={~p"/items/#{bid.item.id}"} class="text-blue-500 hover:underline">
+        <%= bid.item.title %>
+      </.link>
+      </em>
+    </p>
+  <% end %>
+</div>

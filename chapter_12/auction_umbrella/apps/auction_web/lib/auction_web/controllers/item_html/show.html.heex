@@ -1,0 +1,37 @@
+<h1><%= @item.title %></h1>
+<ul>
+  <li><strong>Description: </strong> <%= @item.description %></li>
+  <li><strong>Auction ends at: </strong> <%= @item.ends_at %></li>
+</ul>
+
+<div class="flex flex-row mt-10">
+  <div class="flex-1">
+    <h2 class="text-2xl">Current Bids</h2>
+    <%= for bid <- @item.bids do %>
+      <p><%= integer_to_currency(bid.amount) %> <em>from <%= bid.user.username %></em></p>
+    <% end %>
+  </div>
+  
+  <div class="flex-1">
+<%= if @current_user do %>
+<h2 class="text-2xl">Place your bid!</h2>
+
+
+
+<.form :let={f} for={@bid} action={~p"/items/#{@item.id}/bids"}>
+  <%= if @bid.action do %>
+    <div class="bg-red-50 text-red-500 rounded p-5 my-5 flex flex-col space-y-2">
+    <span class="font-bold text-sm">Error</span>
+    <span>
+      Unfortunately, there are errors in your submission
+    </span>
+    </div>
+  <% end %>
+
+<.input type="text" label="Amount" type="number" field={f[:amount]}/>
+
+<.button type="submit" class="mt-2">Submit</.button>
+</.form>
+<% end %>
+</div>
+</div>
