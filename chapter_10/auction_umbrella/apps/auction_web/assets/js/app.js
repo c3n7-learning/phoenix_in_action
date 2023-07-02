@@ -54,6 +54,10 @@ if (match) {
 
   let channel = socket.channel(`item:${itemId}`, {});
 
+  channel.on("new_bid", (data) => {
+    console.log("new_bid message received", data);
+  });
+
   channel
     .join()
     .receive("ok", (resp) => {

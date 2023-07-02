@@ -8,7 +8,7 @@
   <div class="flex-1">
     <h2 class="text-2xl">Current Bids</h2>
     <%= for bid <- @item.bids do %>
-      <p><%= integer_to_currency(bid.amount) %> <em>from <%= bid.user.username %></em></p>
+    <.single_bid bid={bid} />
     <% end %>
   </div>
   
