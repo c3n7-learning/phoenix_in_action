@@ -29,7 +29,9 @@ defmodule AuctionWeb.Router do
         :edit,
         :update
       ]
-    )
+    ) do
+      resources("/bids", BidController, only: [:create])
+    end
 
     resources("/users", UserController, only: [:show, :new, :create])
 
