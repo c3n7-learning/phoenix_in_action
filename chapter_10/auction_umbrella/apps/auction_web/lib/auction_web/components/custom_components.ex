@@ -27,7 +27,7 @@ defmodule AuctionWeb.CustomComponents do
     ~H"""
       <p>
         <%= integer_to_currency(@bid.amount) %>
-        <em> <span class="text-xs">from</span> <%= @bid.user.username %></em>
+        <em> <span class="text-xs">from</span> <%= Map.get(@bid.user, :username) || @username %></em>
       </p>
     """
   end

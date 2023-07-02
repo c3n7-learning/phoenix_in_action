@@ -7,9 +7,12 @@
 <div class="flex flex-row mt-10">
   <div class="flex-1">
     <h2 class="text-2xl">Current Bids</h2>
-    <%= for bid <- @item.bids do %>
-    <.single_bid bid={bid} />
-    <% end %>
+
+    <div id="bids">
+      <%= for bid <- @item.bids do %>
+      <.single_bid bid={bid} />
+      <% end %>
+    </div>
   </div>
   
   <div class="flex-1">
