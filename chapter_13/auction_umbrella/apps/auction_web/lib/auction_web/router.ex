@@ -18,7 +18,7 @@ defmodule AuctionWeb.Router do
   scope "/", AuctionWeb do
     pipe_through(:browser)
 
-    get("/", PageController, :home)
+    get("/", ItemController, :index)
 
     resources("/items", ItemController,
       only: [
@@ -42,7 +42,7 @@ defmodule AuctionWeb.Router do
 
   # Other scopes may use custom stacks.
   scope "/api", AuctionWeb.Api do
-    pipe_through :api
+    pipe_through(:api)
 
     resources("/items", ItemController, only: [:index, :show])
   end
