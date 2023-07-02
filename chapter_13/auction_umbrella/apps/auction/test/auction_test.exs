@@ -2,7 +2,7 @@ defmodule AuctionTest do
   import Ecto.Query
   use ExUnit.Case
   alias Auction.{Repo, Item}
-  doctest Auction
+  doctest Auction, import: true
 
   setup do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
