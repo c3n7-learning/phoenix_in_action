@@ -4,8 +4,19 @@
   <li><strong>Auction ends at: </strong> <%= @item.ends_at %></li>
 </ul>
 
+<div class="flex flex-row mt-10">
+  <div class="flex-1">
+    <h2 class="text-2xl">Current Bids</h2>
+    <%= for bid <- @item.bids do %>
+      <p><%= integer_to_currency(bid.amount) %> <em>from <%= bid.user.username %></em></p>
+    <% end %>
+  </div>
+  
+  <div class="flex-1">
 <%= if @current_user do %>
-<h2 class="mt-10 text-2xl">Place your bid!</h2>
+<h2 class="text-2xl">Place your bid!</h2>
+
+
 
 <.form :let={f} for={@bid} action={~p"/items/#{@item.id}/bids"}>
   <%= if @bid.action do %>
@@ -22,3 +33,5 @@
 <.button type="submit" class="mt-2">Submit</.button>
 </.form>
 <% end %>
+</div>
+</div>
