@@ -1,6 +1,7 @@
 defmodule AuctionWeb.CustomComponents do
   use Phoenix.Component
   import AuctionWeb.CoreComponents
+  import AuctionWeb.GlobalHelpers
 
   def item_form(assigns) do
     ~H"""
@@ -19,6 +20,15 @@ defmodule AuctionWeb.CustomComponents do
 
     <.button type="submit" class="mt-2">Submit</.button>
     </.form>
+    """
+  end
+
+  def single_bid(assigns) do
+    ~H"""
+      <p>
+        <%= integer_to_currency(@bid.amount) %>
+        <em> <span class="text-xs">from</span> <%= Map.get(@bid.user, :username) || @username %></em>
+      </p>
     """
   end
 end
